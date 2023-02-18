@@ -32,19 +32,38 @@ let divisoresNum2 = [];
 let arrayDivisores = [];
 let k = 0;
 
-// Falta: Revisar los elementos del array del numero mas chico
-// Falta: Revisar como vaciar array para segundo numero
+// Falta: Revisar como hacer return correctamente de los valores
+
 
 function calculadorDivisores(num){
-    if(k<num){
+    if(k<=num){
         if(num%k==0){
             arrayDivisores.push(k);
         }
         k++;
         calculadorDivisores(num)
     }
-
         return arrayDivisores;
+}
+
+let h = 1;
+
+// Array2 pertenece al numero mas grande
+function encontrarElementoEnArray(array1, array2){
+
+    if(h<array1.length-1){
+        
+        if(array2.includes(array1[array1.length-h])){
+            console.log('MCD Encontrado');
+            console.log(array1[array1.length-h])
+             return array1[array1.length-h];
+        }
+        h++;
+        encontrarElementoEnArray(array1, array2); 
+    }
+
+
+
 
 }
 
@@ -54,8 +73,17 @@ function numberInput(num1, num2){
     divisoresNum1 = calculadorDivisores(num1);
     console.log(divisoresNum1);
   
+    arrayDivisores = [];
+    k=0;
+
     divisoresNum2 = calculadorDivisores(num2);
     console.log(divisoresNum2);
+
+    if(num1<num2){
+        console.log(encontrarElementoEnArray(divisoresNum1, divisoresNum2));
+    } else{
+        console.log(encontrarElementoEnArray(divisoresNum2, divisoresNum1));
+    }
 }
 
 numberInput(54, 24)
@@ -93,4 +121,7 @@ function nFibonacci(n){
 }
 
 nFibonacci(7);
+
+
+
 
