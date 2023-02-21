@@ -51,7 +51,7 @@ function onlineStatus(array){
             message = `${array[0]} is online.`
             break;
         case (peopleOnline == 2):
-            message = `${array[0]}, and ${array} are online.`
+            message = `${array[0]}, and ${array[1]} are online.`
             break;
         case (peopleOnline>2):
             message = `${array[0]}, ${array[1]}, and ${array.length-2} more are online`;
@@ -107,6 +107,7 @@ const antipodeArray1 = [1, 2, 3, 5, 22, 6] // -> [3.5, 12, 4]
 const antipodeArray2 = [1, 2, 3, 4, 5, 6, 7, 15, 123, 9, 10] // -> [5.5, 5.5, 63, 9.5, 6]
 
 const averageAntipode = array =>{
+    console.log(`Para el array ${array}, su promedio antipode es: `)
 
     // Crear nuestras variables locales
     let arrayResultados = [];
@@ -115,7 +116,6 @@ const averageAntipode = array =>{
 
     // Si el resultado de dividir la longitud del array entre 2 no es entero, quiere decir que tenemos un numero impar
     if(!Number.isInteger(array.length/2)){
-        console.log('No es integral')
         // Tomamos el primer array de la izquierda desde 0 hasta la (longitud del array)/2,
         // el resultado redondeado hacia abajo
         leftArray = array.slice(0, Math.floor(array.length/2))   
@@ -125,8 +125,6 @@ const averageAntipode = array =>{
         rightArray.reverse();
     }
     else {
-
-        console.log('Si es integral')
         leftArray = array.slice(0, array.length/2)
         rightArray = array.slice(array.length/2, array.length)
         rightArray.reverse();
